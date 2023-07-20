@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { ObjectId } = require('mongodb');
 
 function validator(v) {
   // return /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(v);
@@ -31,11 +33,11 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: validator,
   },
-  // trailerLink: {
-  //   type: String,
-  //   required: true,
-  //   validate: validator,
-  // },
+  trailerLink: {
+    type: String,
+    required: true,
+    validate: validator,
+  },
   thumbnail: {
     type: String,
     required: true,
@@ -46,10 +48,13 @@ const movieSchema = new mongoose.Schema({
     ref: 'user',
     required: true,
   },
-  // movieId: {
-  //   type: Number,
-  //   required: true,
-  // },
+  movieId: {
+    type: String,
+    required: true,
+    default() {
+      return new ObjectId();
+    },
+  },
   nameRU: {
     type: String,
     required: true,

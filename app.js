@@ -12,7 +12,7 @@ const auth = require('./middlewares/auth');
 
 // eslint-disable-next-line import/no-unresolved
 const routes = require('./routes');
-const authRoutes = require('./routes/login');
+// const authRoutes = require('./routes/login');
 
 const app = express();
 
@@ -29,8 +29,6 @@ app.use(requestLogger);
 app.use(routes);
 
 app.use(auth);
-
-app.use(authRoutes);
 
 app.use(errorLogger);
 
