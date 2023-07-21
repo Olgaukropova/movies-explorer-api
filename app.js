@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { errors } = require('celebrate');
+const cors = require('./middlewares/cors');
 const errorHandler = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -15,6 +16,7 @@ const routes = require('./routes');
 // const authRoutes = require('./routes/login');
 
 const app = express();
+app.use(cors);
 
 mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
   useNewUrlParser: true,
