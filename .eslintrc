@@ -13,7 +13,7 @@
 
     //   "linebreak-style": ["error", "unix"
     // ], // changes the file to LF
-    "linebreak-style": 0 ,
+    "linebreak-style": 0 
   }
 }
 
