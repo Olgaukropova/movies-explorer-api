@@ -46,5 +46,5 @@ app.use(errors());
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log('Слушаю порт', PORT);
+  console.log('Слушается порт', PORT);
 });
