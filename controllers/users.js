@@ -5,11 +5,6 @@ const { BadRequestError, NotFoundError, ConflictError } = require('../errors/err
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
-function generateToken(userId) {
-  const token = jsonWebToken.sign({ id: userId }, JWT_SECRET, { expiresIn: '7d' });
-  return token;
-}
-
 const getInfoUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => res.send({ user }))
@@ -40,9 +35,8 @@ const login = (req, res, next) => {
             about: user.about,
             avatar: user.avatar,
             email: user.email,
-            jwt: user.jwt,
+            jwt
           },
-
         });
     })
     .catch(next);
