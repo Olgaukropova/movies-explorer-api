@@ -35,7 +35,7 @@ const login = (req, res, next) => {
             about: user.about,
             avatar: user.avatar,
             email: user.email,
-            jwt
+            jwt,
           },
         });
     })
